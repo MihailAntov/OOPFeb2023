@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _04.PizzaCalories
+namespace PizzaCalories
 {
     public class Topping
     {
@@ -25,10 +25,10 @@ namespace _04.PizzaCalories
             Weight = weight;
         }
 
-        private string ToppingType
+        public string ToppingType
         {
             get { return toppingType; }
-            set
+            private set
             {
                 if (!modifiers.ContainsKey(value.ToLower()))
                 {
@@ -39,14 +39,14 @@ namespace _04.PizzaCalories
             }
         }
 
-        private double Weight
+        public double Weight
         {
             get { return weight; }
-            set
+            private set
             {
                 if (value < 1 || value > 50)
                 {
-                    throw new ArgumentException($"{ToppingType} weight should be in the range[1..50].");
+                    throw new ArgumentException($"{ToppingType} weight should be in the range [1..50].");
                 }
 
                 weight = value;
@@ -63,3 +63,4 @@ namespace _04.PizzaCalories
         }
     }
 }
+

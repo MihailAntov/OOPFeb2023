@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _04.PizzaCalories
+namespace PizzaCalories
 {
     public class Dough
     {
@@ -28,55 +28,55 @@ namespace _04.PizzaCalories
             Weight = weight;
         }
 
-        private string FlourType 
-        { 
-            get { return flourType; } 
-             set 
-            { 
-                if(value.ToLower() != "white" && value.ToLower() != "wholegrain")
+        public string FlourType
+        {
+            get { return flourType; }
+            private set
+            {
+                if (value.ToLower() != "white" && value.ToLower() != "wholegrain")
                 {
                     throw new ArgumentException("Invalid type of dough.");
                 }
-                
-                flourType = value; 
-            } 
+
+                flourType = value;
+            }
         }
-        private string Technique 
-        { 
-            get { return technique; } 
-             set 
+        public string Technique
+        {
+            get { return technique; }
+            private set
             {
                 if (value.ToLower() != "crispy" && value.ToLower() != "chewy" && value.ToLower() != "homemade")
                 {
                     throw new ArgumentException("Invalid type of dough.");
                 }
 
-                technique = value; 
-            } 
+                technique = value;
+            }
         }
-        private double Weight 
-        { 
-            get { return weight; } 
-             set 
-            { 
-                if(value <1 || value > 200)
+        public double Weight
+        {
+            get { return weight; }
+            private set
+            {
+                if (value < 1 || value > 200)
                 {
                     throw new ArgumentException("Dough weight should be in the range [1..200].");
                 }
-                
-                weight = value; 
-            } 
-        } 
+
+                weight = value;
+            }
+        }
 
         public double Calories
         {
-            get 
+            get
             {
                 double caloriesPerGram = baseCaloriesPerGram * modifiers[FlourType.ToLower()] * modifiers[Technique.ToLower()];
                 return caloriesPerGram * weight;
             }
         }
 
-        
+
     }
 }

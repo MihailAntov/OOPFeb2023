@@ -2,7 +2,7 @@
 
 
 
-namespace _04.PizzaCalories;
+namespace PizzaCalories;
 
 public class Program
 {

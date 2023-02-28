@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _04.PizzaCalories
+namespace PizzaCalories
 {
     public class Pizza
     {
@@ -17,6 +17,7 @@ namespace _04.PizzaCalories
         public Pizza(string name)
         {
             Name = name;
+            Dough = dough;
             toppings = new List<Topping>();
         }
         public string Name
@@ -24,7 +25,7 @@ namespace _04.PizzaCalories
             get { return name; }
             private set
             {
-                if (string.IsNullOrWhiteSpace(value) || value.Length > 15)
+                if (value.Length < 1 || value.Length > 15)
                 {
                     throw new ArgumentException("Pizza name should be between 1 and 15 symbols.");
                 }
@@ -46,7 +47,7 @@ namespace _04.PizzaCalories
             this.Dough = dough;
         }
 
-        private Dough Dough { get { return dough; } set { dough = value; } }
+        public Dough Dough { get { return dough; } private set { dough = value; } }
 
         public int ToppingCount { get { return toppings.Count; } }
         public double TotalCalories { 
