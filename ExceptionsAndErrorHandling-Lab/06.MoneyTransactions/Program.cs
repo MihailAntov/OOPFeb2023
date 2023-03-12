@@ -27,7 +27,7 @@ while((input = Console.ReadLine())!= "End")
         int accountNumber = int.Parse(commandArgs[1]);
         decimal sum = decimal.Parse(commandArgs[2]);
 
-        if(!commands.Contains(command) || commandArgs.Length != 3)
+        if(!commands.Contains(command))
         {
             throw new InvalidOperationException("Invalid command!");
         }
@@ -47,9 +47,10 @@ while((input = Console.ReadLine())!= "End")
             {
                 throw new InvalidOperationException("Insufficient balance!");
             }
+            balances[accountNumber] -= sum;
         }
 
-        Console.WriteLine($"Account {accountNumber} has new balance: {balances[accountNumber]}");
+        Console.WriteLine($"Account {accountNumber} has new balance: {balances[accountNumber]:f2}");
     }
     catch(InvalidOperationException ex)
     {
