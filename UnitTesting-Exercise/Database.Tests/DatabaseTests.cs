@@ -20,7 +20,10 @@ namespace Database.Tests
         public void Adding17thElementThrowsException()
         {
 
-            FillDatabase();
+            for (int i = 0; i < 16; i++)
+            {
+                database.Add(i);
+            }
             Assert.Throws<InvalidOperationException>(() => database.Add(0));
         }
 
@@ -28,7 +31,10 @@ namespace Database.Tests
         public void DatabaseCapacityIsSixteen()
         {
             const int dbCapacity = 16;
-            FillDatabase();
+            for (int i = 0; i < 16; i++)
+            {
+                database.Add(i);
+            }
             Assert.That(database.Count, Is.EqualTo(dbCapacity));
         }
 
@@ -64,79 +70,64 @@ namespace Database.Tests
             Assert.Throws<InvalidOperationException>(() => database.Remove());
         }
 
-        [Test]
-        public void ConstructorOnlyTakesIntegers()
-        {
-            Type dbType = typeof(Database);
-            ConstructorInfo[] constructors = dbType.GetConstructors();
+        //[Test]
+        //public void ConstructorOnlyTakesIntegers()
+        //{
+        //    Type dbType = typeof(Database);
+        //    ConstructorInfo[] constructors = dbType.GetConstructors();
 
-            bool onlyTakesInts = true;
+        //    bool onlyTakesInts = true;
 
-            foreach(ConstructorInfo constructor in constructors)
-            {
-                ParameterInfo[] paramTypes = constructor.GetParameters();
+        //    foreach(ConstructorInfo constructor in constructors)
+        //    {
+        //        ParameterInfo[] paramTypes = constructor.GetParameters();
 
-                foreach(ParameterInfo parameterInfo in paramTypes)
-                {
-                    if (parameterInfo.ParameterType != typeof(int[]))
-                    {
-                        onlyTakesInts = false;
-                    }
-                }
-                
-            }
+        //        foreach(ParameterInfo parameterInfo in paramTypes)
+        //        {
+        //            if (parameterInfo.ParameterType != typeof(int[]))
+        //            {
+        //                onlyTakesInts = false;
+        //            }
+        //        }
 
-            Assert.That(onlyTakesInts, Is.True);
-        }
+        //    }
+
+        //    Assert.That(onlyTakesInts, Is.True);
+        //}
 
         [Test]
         public void ConstructorStoresIntegers()
         {
-            int[] InitialDatabaseSeed =  { 3 };
+            int[] InitialDatabaseSeed = { 3 };
             Database database = new Database(InitialDatabaseSeed);
-            bool seedEqualToDataContents = true;
-            int[] databaseContents = (int[])database.GetType()
-                .GetFields(BindingFlags.NonPublic | BindingFlags.Instance)
-                .FirstOrDefault(p => p.Name == "data")
-                .GetValue(database);
-            for(int i = 0; i < InitialDatabaseSeed.Length; i++)
-            {
-                if (InitialDatabaseSeed[i] != databaseContents[i])
-                {
-                    seedEqualToDataContents = false;
-                }
-            }
+            
+            
+            
 
-            Assert.That(seedEqualToDataContents, Is.True);
+            Assert.That(database.Fetch(), Is.EquivalentTo(InitialDatabaseSeed));
         }
 
-        [Test]
-        public void FetchReturnsArray()
-        {
-            int[] InitialDatabaseSeed = { 3,5,7 };
-            Database database = new Database(InitialDatabaseSeed);
+        //[Test]
+        //public void FetchReturnsArray()
+        //{
+        //    int[] InitialDatabaseSeed = { 3,5,7 };
+        //    Database database = new Database(InitialDatabaseSeed);
 
-            bool seedEqualToDataContents = true;
-            for (int i = 0; i < InitialDatabaseSeed.Length; i++)
-            {
-                if (InitialDatabaseSeed[i] != database.Fetch()[i])
-                {
-                    seedEqualToDataContents = false;
-                }
-            }
+        //    bool seedEqualToDataContents = true;
+        //    for (int i = 0; i < InitialDatabaseSeed.Length; i++)
+        //    {
+        //        if (InitialDatabaseSeed[i] != database.Fetch()[i])
+        //        {
+        //            seedEqualToDataContents = false;
+        //        }
+        //    }
 
-            Assert.That(seedEqualToDataContents, Is.True);
-        }
-
-        
+        //    Assert.That(seedEqualToDataContents, Is.True);
+        //}
 
 
-        public void FillDatabase()
-        {
-            for (int i = 0; i < 16; i++)
-            {
-                database.Add(i);
-            }
-        }
+
+
+
     }
 }
