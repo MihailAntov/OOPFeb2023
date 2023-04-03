@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32616.157
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Book", "Book\Book.csproj", "{CCE832FE-EDD4-4FAE-BD92-AC19575830F0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Book.Tests", "Book.Tests\Book.Tests.csproj", "{83793D67-27C4-4215-9412-B54364EB5A20}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NavalVessels", "NavalVessels\NavalVessels.csproj", "{62304B8C-BAC7-4DED-864B-8A9E73955621}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CCE832FE-EDD4-4FAE-BD92-AC19575830F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCE832FE-EDD4-4FAE-BD92-AC19575830F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCE832FE-EDD4-4FAE-BD92-AC19575830F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCE832FE-EDD4-4FAE-BD92-AC19575830F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83793D67-27C4-4215-9412-B54364EB5A20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83793D67-27C4-4215-9412-B54364EB5A20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83793D67-27C4-4215-9412-B54364EB5A20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83793D67-27C4-4215-9412-B54364EB5A20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62304B8C-BAC7-4DED-864B-8A9E73955621}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62304B8C-BAC7-4DED-864B-8A9E73955621}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62304B8C-BAC7-4DED-864B-8A9E73955621}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62304B8C-BAC7-4DED-864B-8A9E73955621}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {15F8202F-EF1B-4984-A2CC-D68A54DEE60F}
+	EndGlobalSection
+EndGlobal

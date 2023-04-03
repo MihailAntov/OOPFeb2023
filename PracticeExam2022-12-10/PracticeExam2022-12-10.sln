@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32616.157
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChristmasPastryShop", "01. Structure_Skeleton (1)\ChristmasPastryShop.csproj", "{23F5CEDD-C4AB-491C-9134-52997A898283}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{23F5CEDD-C4AB-491C-9134-52997A898283}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23F5CEDD-C4AB-491C-9134-52997A898283}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23F5CEDD-C4AB-491C-9134-52997A898283}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23F5CEDD-C4AB-491C-9134-52997A898283}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {99DAB728-E424-4501-BFFD-7FBA421E8CE6}
+	EndGlobalSection
+EndGlobal
