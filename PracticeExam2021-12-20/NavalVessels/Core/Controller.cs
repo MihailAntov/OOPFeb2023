@@ -120,10 +120,10 @@ namespace NavalVessels.Core
             IVessel vessel = null!;
             switch(vesselType)
             {
-                case "Battleship":
+                case nameof(Battleship):
                     vessel = new Battleship(name, mainWeaponCaliber, speed);
                     break;
-                case "Submarine":
+                case nameof(Submarine):
                     vessel = new Submarine(name, mainWeaponCaliber, speed);
                     break;
             }

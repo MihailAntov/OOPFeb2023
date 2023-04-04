@@ -62,7 +62,7 @@ namespace BookingApp.Models.Hotels
         public IRepository<IRoom> Rooms
         {
             get { return rooms; }
-            set
+            private set
             {
                 rooms = value;
             }
@@ -71,7 +71,7 @@ namespace BookingApp.Models.Hotels
         public IRepository<IBooking> Bookings
         {
             get { return bookings; }
-            set
+            private set
             {
                 bookings = value;
             }

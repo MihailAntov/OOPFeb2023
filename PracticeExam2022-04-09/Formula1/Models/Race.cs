@@ -57,7 +57,7 @@ namespace Formula1.Models
         {
             get { return pilots; }
             
-            
+            //private set { pilots = value; }
         }
 
         public void AddPilot(IPilot pilot)

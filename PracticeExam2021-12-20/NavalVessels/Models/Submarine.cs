@@ -43,7 +43,7 @@ namespace NavalVessels.Models
         public override string ToString()
         {
             string submergeModeIndicator = SubmergeMode ? "ON" : "OFF";
-            return base.ToString() + $"{Environment.NewLine} *Submerge mode {submergeModeIndicator}";
+            return base.ToString() + $"{Environment.NewLine} *Submerge mode: {submergeModeIndicator}";
         }
     }
 }
