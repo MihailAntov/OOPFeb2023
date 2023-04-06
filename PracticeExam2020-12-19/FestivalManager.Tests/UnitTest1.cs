@@ -1,6 +1,7 @@
 using FestivalManager.Entities;
 using NUnit.Framework;
 using System;
+using System.Linq;
 
 namespace FestivalManager.Tests
 {
@@ -18,38 +19,38 @@ namespace FestivalManager.Tests
             stage = new Stage();
         }
 
-        //[Test]
-        //public void SongConstructorSetsProperties()
-        //{
-        //    song = new Song("caroline",new TimeSpan(0, 2, 15));
-        //    Assert.That(song, Is.Not.Null);
-        //    Assert.That(song.Name, Is.EqualTo("caroline"));
-        //    Assert.That(song.Duration, Is.EqualTo(new TimeSpan(0, 2, 15)));
-        //    Assert.That(song.Duration.TotalSeconds, Is.EqualTo(135));
-        //}
+        [Test]
+        public void SongConstructorSetsProperties()
+        {
+            song = new Song("caroline", new TimeSpan(0, 2, 15));
+            Assert.That(song, Is.Not.Null);
+            Assert.That(song.Name, Is.EqualTo("caroline"));
+            Assert.That(song.Duration, Is.EqualTo(new TimeSpan(0, 2, 15)));
+            Assert.That(song.Duration.TotalSeconds, Is.EqualTo(135));
+        }
 
-        //[Test]
-        //public void SongToStringReturnsCorrectValue()
-        //{
-        //    Assert.That(song.ToString(), Is.EqualTo("sweet (03:25)"));
-        //}
+        [Test]
+        public void SongToStringReturnsCorrectValue()
+        {
+            Assert.That(song.ToString(), Is.EqualTo("sweet (03:25)"));
+        }
 
-        //[Test]
-        //public void PerformerConstructorSetsProperties()
-        //{
-        //    performer = new Performer("john", "smith", 25);
-        //    Assert.That(performer, Is.Not.Null);
-        //    Assert.That(performer.FullName, Is.EqualTo("john smith"));
-        //    Assert.That(performer.SongList, Is.Not.Null);
-        //    Assert.That(performer.Age, Is.EqualTo(25));
+        [Test]
+        public void PerformerConstructorSetsProperties()
+        {
+            performer = new Performer("john", "smith", 25);
+            Assert.That(performer, Is.Not.Null);
+            Assert.That(performer.FullName, Is.EqualTo("john smith"));
+            Assert.That(performer.SongList, Is.Not.Null);
+            Assert.That(performer.Age, Is.EqualTo(25));
 
-        //}
+        }
 
-        //[Test]
-        //public void PerformerToStringReturnsCorrectValue()
-        //{
-        //    Assert.That(performer.ToString(), Is.EqualTo("test testov"));
-        //}
+        [Test]
+        public void PerformerToStringReturnsCorrectValue()
+        {
+            Assert.That(performer.ToString(), Is.EqualTo("test testov"));
+        }
 
         [Test]
         public void StageConstructorSetsProperties()
@@ -65,6 +66,7 @@ namespace FestivalManager.Tests
             Assert.That(stage.Performers.Count, Is.EqualTo(0));
             stage.AddPerformer(performer);
             Assert.That(stage.Performers.Count, Is.EqualTo(1));
+            Assert.That(stage.Performers.Contains(performer));
         }
 
         [Test]
@@ -89,8 +91,12 @@ namespace FestivalManager.Tests
             Assert.That(stage.Play(), Is.EqualTo("0 performers played 0 songs"));
             stage.AddSong(song);
             stage.AddPerformer(performer);
-            stage.AddSongToPerformer("sweet", "test testov");
+            string result = stage.AddSongToPerformer("sweet", "test testov");
+            Assert.That(performer.SongList.Contains(song), Is.True);
             Assert.That(stage.Play(), Is.EqualTo("1 performers played 1 songs"));
+
+            Assert.That(result, Is.EqualTo("sweet (03:25) will be performed by test testov"));
+            
 
         }
 
